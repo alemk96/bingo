@@ -1,8 +1,17 @@
 # Documentation for Bingo Card Generator
 
-# :warning: Experimental and very nightly version
+## :warning: Experimental and very nightly version
 
-This Python script generates bingo cards with customizable grids, titles, and text content. The cards are saved as images with a professional layout, making them ideal for events or games. For the meme and having fun at christmas lunch
+This Python script generates bingo cards with customizable grids, titles, and text content. The cards are saved as images with a professional layout, making them ideal for events or games. For the meme and having fun at christmas lunch.
+
+
+## Disclaimer
+This script is intended for educational purposes and fun activities. It is not intended for commercial use or professional applications. The script may contain bugs or limitations due to its experimental nature. 
+
+Due the goliardic nature of the script, the author is not responsible for any misuse or misinterpretation of the generated bingo cards. Use at your own risk.
+
+All documentation is AI-generated. Common, is for the meme, not a serious project. Enjoy! :smile:
+
 
 ---
 
@@ -16,7 +25,7 @@ This Python script generates bingo cards with customizable grids, titles, and te
 - Supports multiple bingo cards generation in a single run.
 
 ### Libraries Used:
-- `PIL (Pillow)`: For image creation and drawing.
+- `pillow`: For image creation and drawing.
 - `numpy`: For mathematical calculations.
 - `textwrap`: For text wrapping.
 - `random`: For shuffling questions.
@@ -153,6 +162,4 @@ Describe the perfect winter day.
 ## Customization
 - Change `cell_size`, `title`, and `padding` in the `draw_card` function for personalized designs.
 - Modify `font_path` to use different fonts. Ensure the `.ttf` file is available locally.
-
-
 
