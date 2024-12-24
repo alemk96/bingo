@@ -171,4 +171,6 @@ def bingo(name: str,count: int=1)-> None:
         draw_card(name, questions, title = "Christmas Bingo", count = i )
 
 if __name__ == "__main__":
-    bingo('card_bingo',1)
+    # Number of bingo cards to generate
+    card_generated: int = 2 
+    bingo('card_bingo',card_generated)
