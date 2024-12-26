@@ -4,18 +4,19 @@ import textwrap
 import random
 import os
 
+with open('questions.txt', 'r') as file:
+        questions: list[str] = list(map(lambda x : x.replace("Ã","à").replace("àˆ","È").replace("\xa0","").replace("à¨",""), file.read().splitlines()))[:24]
+        
+        
 def get_questions() -> list[str]:
     """
-    Retrieves the array of questions.
-
+    Shuffle and selects 24 questions from the list of questions.
+    
     Returns:
         np.array: An array of questions.
     """
-    with open('questions.txt', 'r') as file:
-        questions: list[str] = list(map(lambda x : x.replace("Ã","à").replace("àˆ","È").replace("\xa0","").replace("à¨",""), file.read().splitlines()))
-
     random.shuffle(questions)
-    return questions
+    return list(questions)
 
 def best_rectangle_shape(n: int) -> tuple[int, int]:
     """
