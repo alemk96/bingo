@@ -1,4 +1,4 @@
-# Documentation for Bingo Card Generator
+# Bingo Card Generator
 
 ## :warning: Experimental and very nightly version
 
