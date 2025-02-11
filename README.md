@@ -137,28 +137,6 @@ Generates one or more bingo cards with questions fetched from the text file.
 
 ---
 
-## Example
-
-### Input (`questions.txt`):
-```text
-What is your favorite holiday activity?
-Name a Christmas song you love.
-Describe the perfect winter day.
-...
-```
-
-### Output:
-- A bingo card image with a title and grid of questions.
-- Example filename: `generated_bingocards/card_bingo_1.png`.
-
----
-
-## Error Handling
-- If the font file is not found, it defaults to the system’s basic font.
-- Ensures graceful fallback for invalid font sizes or file paths.
-
----
-
 ## Customization
 - Change `cell_size`, `title`, and `padding` in the `draw_card` function for personalized designs.
 - Modify `font_path` to use different fonts. Ensure the `.ttf` file is available locally.
