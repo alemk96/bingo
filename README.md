@@ -10,7 +10,7 @@ This script is intended for educational purposes and fun activities. It is not i
 
 Due the goliardic nature of the script, the author is not responsible for any misuse or misinterpretation of the generated bingo cards. Use at your own risk.
 
-All documentation is AI-generated. Common, is for the meme, not a serious project. Enjoy! :smile:
+All documentation is AI-generated. Dude, is for the meme, not a serious project. Enjoy! :smile:
 
 
 ---
