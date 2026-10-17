@@ -3,9 +3,9 @@ import numpy as np
 import textwrap
 import random
 import os
-
+    
 with open('questions.txt', 'r') as file:
-        questions: list[str] = list(map(lambda x : x.replace("Ã","à").replace("àˆ","È").replace("\xa0","").replace("à¨",""), file.read().splitlines()))[:24]
+        questions: list[str] = list(map(lambda x : x.replace("Ã","à").replace("àˆ","È").replace("\xa0","").replace("à¨",""), file.read().splitlines()))
         
         
 def get_questions() -> list[str]:
@@ -16,7 +16,7 @@ def get_questions() -> list[str]:
         np.array: An array of questions.
     """
     random.shuffle(questions)
-    return list(questions)
+    return list(questions)[:25]
 
 def best_rectangle_shape(n: int) -> tuple[int, int]:
     """
@@ -35,7 +35,7 @@ def best_rectangle_shape(n: int) -> tuple[int, int]:
     # Select the pair with the smallest difference between rows and columns
     return min(factors, key=lambda x: abs(x[0] - x[1]))
 
-def find_optimal_font_size(draw: ImageDraw, text: str, max_width: int, max_height: int, font_path: str ="arial.ttf", start_size: int=24) -> tuple[ImageFont, list[str]]: # type: ignore
+def find_optimal_font_size(draw: ImageDraw, text: str, max_width: int, max_height: int, font_path: str ="arial.ttf", start_size: int=30) -> tuple[ImageFont, list[str]]: # type: ignore
     """
     Determines the largest font size that fits the text within specified dimensions.
 
