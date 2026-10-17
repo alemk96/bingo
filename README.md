@@ -26,96 +26,19 @@ All documentation is AI-generated. Dude, is for the meme, not a serious project.
 
 ### Libraries Used:
 - `pillow`: For image creation and drawing.
-- `numpy`: For mathematical calculations.
-- `textwrap`: For text wrapping.
-- `random`: For shuffling questions.
-- `os`: For directory and file handling.
+- Standard library: `argparse`, `math`, `pathlib`, `random`, `textwrap`.
 
 ---
 
 ## Functions
 
-### 1. **`get_questions`**
-```python
-def get_questions() -> list[str]:
-```
-Reads questions from `questions.txt`, replaces unwanted characters, shuffles the questions, and returns them as a list.
-
-- **Returns:** `list[str]` - List of cleaned and shuffled questions.
-
----
-
-### 2. **`best_rectangle_shape`**
-```python
-def best_rectangle_shape(n: int) -> tuple[int, int]:
-```
-Determines the optimal rectangular grid shape (rows, columns) for a given number of elements to minimize the difference between rows and columns.
-
-- **Parameters:**
-  - `n (int)`: Total number of elements.
-- **Returns:** `tuple[int, int]` - Optimal `(rows, cols)` grid shape.
-
----
-
-### 3. **`find_optimal_font_size`**
-```python
-def find_optimal_font_size(draw: ImageDraw, text: str, max_width: int, max_height: int, font_path: str ="arial.ttf", start_size: int=24) -> tuple[ImageFont, list[str]]:
-```
-Finds the largest font size that fits the given text within specified dimensions, wrapping text as necessary.
-
-- **Parameters:**
-  - `draw (ImageDraw)`: Instance used for text measurement.
-  - `text (str)`: The text to be displayed.
-  - `max_width (int)`: Maximum allowed width for the text.
-  - `max_height (int)`: Maximum allowed height for the text.
-  - `font_path (str)`: Path to the font file.
-  - `start_size (int)`: Initial font size to test.
-- **Returns:** 
-  - `ImageFont`: Font object with the optimal size.
-  - `list[str]`: Wrapped lines of text.
-
----
-
-### 4. **`draw_question`**
-```python
-def draw_question(image: ImageDraw, question: str, x_offset: int, y_offset: int, cell_size: int, font_path: str="roboto.ttf") -> None:
-```
-Draws a question centered within a square cell on the image.
-
-- **Parameters:**
-  - `image (Image)`: The image canvas for drawing.
-  - `question (str)`: Text to display.
-  - `x_offset (int)`: X-coordinate of the cell's top-left corner.
-  - `y_offset (int)`: Y-coordinate of the cell's top-left corner.
-  - `cell_size (int)`: Size of the square cell.
-  - `font_path (str)`: Path to the font file.
-
----
-
-### 5. **`draw_card`**
-```python
-def draw_card(name: str, questions: list[str], title: str = "Bingo Card", padding: int = 20, count: int = 1) -> None:
-```
-Creates a bingo card image with a title and a grid layout of questions.
-
-- **Parameters:**
-  - `name (str)`: Name of the output image file (without extension).
-  - `questions (list[str])`: List of questions to populate the grid.
-  - `title (str)`: Title displayed at the top of the card.
-  - `padding (int)`: Padding around the title and grid.
-  - `count (int)`: Card count identifier for saving multiple images.
-
----
-
-### 6. **`bingo`**
-```python
-def bingo(name: str, count: int=1) -> None:
-```
-Generates one or more bingo cards with questions fetched from the text file.
-
-- **Parameters:**
-  - `name (str)`: Name of the output image file (without extension).
-  - `count (int)`: Number of bingo cards to generate.
+- `load_questions(path)`: reads a UTF-8 file, one question per line, skipping empty lines.
+- `get_questions(questions, k=25)`: picks `k` distinct random questions without mutating the pool.
+- `best_rectangle_shape(n)`: returns the `(rows, cols)` grid closest to a square for `n` cells.
+- `find_optimal_font_size(text, max_width, max_height, ...)`: largest font size that fits the wrapped text; returns `(font, lines)`.
+- `draw_question(image, question, x_offset, y_offset, cell_size, ...)`: draws a question centered in a cell.
+- `draw_card(path, questions, title, padding)`: renders a card and saves it to `path`.
+- `bingo(questions, name, count, title)`: generates `count` cards in `generated_bingocards/`.
 
 ---
 
@@ -129,9 +52,9 @@ Generates one or more bingo cards with questions fetched from the text file.
    - Install dependencies and run with [uv](https://docs.astral.sh/uv/):
      ```bash
      uv sync
-     uv run main.py
+     uv run main.py --count 4 --title "Christmas Bingo"
      ```
-   - By default, it generates one card. Modify the `count` argument in the `bingo` function to create multiple cards.
+   - Options: `-q/--questions` (file, default `questions.txt`), `-n/--count` (default 2), `-t/--title`, `--name` (output base name).
 
 3. **Locate the Output:**
    - Generated bingo cards are saved in the `generated_bingocards` folder.
@@ -139,6 +62,6 @@ Generates one or more bingo cards with questions fetched from the text file.
 ---
 
 ## Customization
-- Change `cell_size`, `title`, and `padding` in the `draw_card` function for personalized designs.
-- Modify `font_path` to use different fonts. Ensure the `.ttf` file is available locally.
+- Change the constants at the top of `main.py` (`CELL_SIZE`, `NUM_QUESTIONS`, `FONT_PATH`, ...) for personalized designs.
+- Point `FONT_PATH` to a different font. Ensure the `.ttf` file is available locally.
 
