@@ -126,9 +126,10 @@ Generates one or more bingo cards with questions fetched from the text file.
    - Add one question per line.
 
 2. **Run the Script:**
-   - Execute the script from the command line or an IDE:
+   - Install dependencies and run with [uv](https://docs.astral.sh/uv/):
      ```bash
-     python bingo_card_generator.py
+     uv sync
+     uv run main.py
      ```
    - By default, it generates one card. Modify the `count` argument in the `bingo` function to create multiple cards.
 
